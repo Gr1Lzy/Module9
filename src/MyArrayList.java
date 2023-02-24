@@ -1,8 +1,9 @@
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyArrayList<T> {
     private Object[] elements;
-    private static final int DEFAULT_CAPACITY = 5;
+    private static final int DEFAULT_CAPACITY = 10;
     private int size;
     public MyArrayList() {
         elements = new Object[DEFAULT_CAPACITY];
@@ -22,12 +23,9 @@ public class MyArrayList<T> {
 
     //удаляет элемент под индексом
     void remove(int index) {
-        if (index > size - 1 && size < 0) {
-            throw new ArrayIndexOutOfBoundsException();
-        } else {
-            elements[index] = null;
-            size--;
-        }
+        Objects.checkIndex(index, size);
+        elements[index] = null;
+        size--;
     }
 
     //очищает коллекцию
@@ -43,11 +41,8 @@ public class MyArrayList<T> {
 
     //возвращает элемент под индексом
     void get(int index) {
-        if (index > size - 1 && size < 0) {
-            throw new ArrayIndexOutOfBoundsException();
-        } else {
-            System.out.println((String) elements[index]);
-        }
+        Objects.checkIndex(index, size);
+        System.out.println((String) elements[index]);
     }
 
     @Override
