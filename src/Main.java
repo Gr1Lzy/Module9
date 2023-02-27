@@ -1,5 +1,3 @@
-import java.util.SortedMap;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("_____________myArrayList_____________");
@@ -21,6 +19,7 @@ public class Main {
         myArrayList.add("7");
         myArrayList.clear();
         System.out.println(myArrayList);
+
         System.out.println("_____________myLinkedList_____________");
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("1");
@@ -38,6 +37,7 @@ public class Main {
         myLinkedList.clear();
         System.out.println(myLinkedList);
         myLinkedList.size();
+
         System.out.println("______________MyQueue______________");
         MyQueue<String> myQueue = new MyQueue<>();
         myQueue.add("1");
@@ -51,7 +51,27 @@ public class Main {
         myQueue.peek();
         myQueue.size();
         System.out.println(myQueue);
+        myQueue.poll();
+        System.out.println(myQueue);
         myQueue.clear();
         System.out.println(myQueue);
+
+        System.out.println("______________MyStack______________");
+        MyStack myStack = new MyStack();
+        myStack.push("Andrey");
+        myStack.push("Misha");
+        myStack.push("Alex");
+        myStack.push("Roma");
+        System.out.println(myStack);
+        myStack.size();
+        myStack.remove(0);
+        System.out.println(myStack);
+        myStack.size();
+        myStack.pop();
+        myStack.size();
+        System.out.println(myStack);
+        myStack.pop();
+        myStack.size();
+        System.out.println(myStack);
     }
 }

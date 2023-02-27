@@ -22,7 +22,7 @@ public class MyQueue<T> {
     }
 
     void poll() { // возвращает первый элемент в очереди и удаляет его из коллекции
-        System.out.println(peek() + " - go out, bye bye!");
+        System.out.println(peek() + " - bye bye!");
         refreshArray();
     }
 
