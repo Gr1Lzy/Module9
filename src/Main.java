@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("_____________myArrayList_____________");
@@ -73,5 +75,15 @@ public class Main {
         myStack.pop();
         myStack.size();
         System.out.println(myStack);
+
+        System.out.println("_______________HashMap___________");
+        MyHashMap<String, String> myHashMap = new MyHashMap<>();
+        myHashMap.put("key1", "value1");
+        myHashMap.put("key2", "value2");
+        myHashMap.put("key3", "value3");
+        myHashMap.put("key4", "value4");
+        myHashMap.put("key5", "value5");
+        myHashMap.size();
+        myHashMap.clear();
     }
 }
