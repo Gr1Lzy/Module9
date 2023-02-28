@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class MyStack {
+public class MyStack<T> {
     private Object[] elements;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
@@ -10,7 +10,7 @@ public class MyStack {
         size = 0;
     }
 
-    void push(Object value) { // добавляет элемент в конец
+    void push(T value) { // добавляет элемент в конец
         if (elements.length >= DEFAULT_CAPACITY) {
             elements = Arrays.copyOf(elements, elements.length + 5);
         }
