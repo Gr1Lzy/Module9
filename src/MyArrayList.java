@@ -49,8 +49,17 @@ public class MyArrayList<T> {
 
     @Override
     public String toString() {
-        return GetString.getString(elements, size);
+        String result = "[";
+        for (Object element : elements) {
+            if(element != null) {
+                result += element + ", ";
+            }
+        }
+        result += " ";
+        if (size == 0) return "[]";
+    return result.replace(",  ", "]");
     }
+
 }
 
 

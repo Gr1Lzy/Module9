@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+
         System.out.println("_____________myArrayList_____________");
         MyArrayList<String> myArrayList = new MyArrayList<>();
         myArrayList.add("1");
@@ -10,10 +12,10 @@ public class Main {
         System.out.println(myArrayList);
         myArrayList.get(2);
         myArrayList.size();
-        myArrayList.clear();
-        System.out.println(myArrayList);
+
         myArrayList.add("4");
         myArrayList.add("5");
+        System.out.println(myArrayList);
         myArrayList.remove(0);
         System.out.println(myArrayList);
         myArrayList.size();
@@ -33,8 +35,7 @@ public class Main {
         myLinkedList.add("5");
         myLinkedList.add("6");
         myLinkedList.add("7");
-        myLinkedList.remove(0);
-        myLinkedList.size();
+        myLinkedList.remove(1);
         System.out.println(myLinkedList);
         myLinkedList.clear();
         System.out.println(myLinkedList);

@@ -23,7 +23,7 @@ public class MyLinkedList<T> {
         size++;
     }
 
-    T remove(int index) { // удаляет элемент под индексом
+    Object remove(int index) { // удаляет элемент под индексом
         Objects.checkIndex(index, size);
         T removedElement;
         if (index == 0) {
