@@ -1,18 +1,18 @@
 import java.util.Arrays;
 
 public class MyStack<T> {
-    private Object[] elements;
+    private T[] elements;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
 
     public MyStack() {
-        elements = new Object[DEFAULT_CAPACITY];
+        elements = (T[]) new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 
     void push(T value) { // добавляет элемент в конец
-        if (elements.length >= DEFAULT_CAPACITY) {
-            elements = Arrays.copyOf(elements, elements.length + 5);
+        if (size == elements.length) {
+            elements = Arrays.copyOf(elements, (int) (elements.length * 1.5));
         }
         elements[size++] = value;
     }
@@ -21,46 +21,34 @@ public class MyStack<T> {
         return size;
     }
 
-    Object clear() { // очищает коллекцию
-        return elements = new Object[DEFAULT_CAPACITY];
+    void clear() { // очищает коллекцию
+        size = 0;
+        elements = (T[]) new Object[DEFAULT_CAPACITY];
     }
 
     void remove(int index) { // удаляет элемент под индексом
-        elements[index] = null;
-        refreshArray();
+        System.arraycopy(elements, index + 1, elements, index, size - index - 1);
+        elements[--size] = null;
     }
 
-    Object pop() { // возвращает первый элемент в стеке и удаляет его из коллекции
-        Object temp = elements[size - 1];
-        elements[size - 1] = null;
-        size--;
+    T pop() { // возвращает первый элемент в стеке и удаляет его из коллекции
+        if (size == 0) {
+            return null;
+        }
+        T temp = elements[--size];
+        elements[size] = null;
         return temp;
     }
 
-    Object peek() { // возвращает первый элемент в стеке (LIFO)
-        return elements[0];
+    T peek() { // возвращает первый элемент в стеке (LIFO)
+        if (size == 0) {
+            return null;
+        }
+        return elements[size - 1];
     }
 
-    private Object[] refreshArray() {
-        for (int index = 0; index < elements.length; index++) {
-            if (elements[index] == null) {
-                for (; index < elements.length; index++) {
-                    if (elements[index + 1] != null) {
-                        elements[index] = elements[index + 1];
-                    } else {
-                        elements[index] = null;
-                        size--;
-                        return elements;
-                    }
-                }
-            }
-        }
-        return null;
-    }
     @Override
     public String toString() {
         return GetString.getString(elements, size);
     }
 }
-
-

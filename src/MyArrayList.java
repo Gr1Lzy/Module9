@@ -2,12 +2,12 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class MyArrayList<T> {
-    private Object[] elements;
+    private T[] elements;
     private static final int DEFAULT_CAPACITY = 10;
     private int size;
 
     public MyArrayList() {
-        elements = new Object[DEFAULT_CAPACITY];
+        elements = (T[]) new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 
@@ -26,13 +26,13 @@ public class MyArrayList<T> {
     //удаляет элемент под индексом
     void remove(int index) {
         Objects.checkIndex(index, size);
-        elements[index] = null;
-        size--;
+        System.arraycopy(elements, index + 1, elements, index, size - index - 1);
+        elements[--size] = null;
     }
 
     //очищает коллекцию
     void clear() {
-        elements = new Object[DEFAULT_CAPACITY];
+        elements = Arrays.copyOf(elements, DEFAULT_CAPACITY);
         size = 0;
     }
 
@@ -42,24 +42,13 @@ public class MyArrayList<T> {
     }
 
     //возвращает элемент под индексом
-    Object get(int index) {
+    T get(int index) {
         Objects.checkIndex(index, size);
         return elements[index];
     }
 
     @Override
     public String toString() {
-        String result = "[";
-        for (Object element : elements) {
-            if(element != null) {
-                result += element + ", ";
-            }
-        }
-        result += " ";
-        if (size == 0) return "[]";
-    return result.replace(",  ", "]");
+        return GetString.getString(elements, size);
     }
-
 }
-
-

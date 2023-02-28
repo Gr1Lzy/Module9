@@ -1,9 +1,6 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-
         System.out.println("_____________myArrayList_____________");
         MyArrayList<String> myArrayList = new MyArrayList<>();
         myArrayList.add("1");
