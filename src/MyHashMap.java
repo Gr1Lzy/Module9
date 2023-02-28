@@ -70,8 +70,8 @@ class MyHashMap<K, V> {
         }
     }
 
-    void size() {
-        System.out.println(size);
+    int size() {
+        return size;
     }
 
     void clear() {

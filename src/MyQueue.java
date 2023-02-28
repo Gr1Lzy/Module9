@@ -21,9 +21,10 @@ public class MyQueue<T> {
         return elements[0];
     }
 
-    void poll() { // возвращает первый элемент в очереди и удаляет его из коллекции
-        System.out.println(peek() + " - bye bye!");
+    Object poll() { // возвращает первый элемент в очереди и удаляет его из коллекции
+        Object temp = peek();
         refreshArray();
+        return temp;
     }
 
     private void refreshArray() {
@@ -38,8 +39,8 @@ public class MyQueue<T> {
         size = 0;
     }
 
-    void size() { // возвращает размер коллекции
-        System.out.println(size);
+    int size() { // возвращает размер коллекции
+        return size;
     }
 
     @Override

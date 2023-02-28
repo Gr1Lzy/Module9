@@ -37,14 +37,14 @@ public class MyArrayList<T> {
     }
 
     //возвращает размер коллекции
-    void size() {
-        System.out.println(size);
+    int size() {
+        return size;
     }
 
     //возвращает элемент под индексом
-    void get(int index) {
+    Object get(int index) {
         Objects.checkIndex(index, size);
-        System.out.println((String) elements[index]);
+        return elements[index];
     }
 
     @Override

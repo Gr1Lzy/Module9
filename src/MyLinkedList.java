@@ -49,8 +49,8 @@ public class MyLinkedList<T> {
         size = 0;
     }
 
-    void size() { // возвращает размер коллекции
-        System.out.println(size);
+    int size() { // возвращает размер коллекции
+        return size;
     }
 
     T get(int index) { // возвращает элемент под индексом

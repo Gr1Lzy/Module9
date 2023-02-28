@@ -17,8 +17,8 @@ public class MyStack {
         elements[size++] = value;
     }
 
-    void size() { // возвращает размер коллекции
-        System.out.println(size);
+    int size() { // возвращает размер коллекции
+        return size;
     }
 
     Object clear() { // очищает коллекцию
@@ -30,14 +30,15 @@ public class MyStack {
         refreshArray();
     }
 
-    void pop() { // возвращает первый элемент в стеке и удаляет его из коллекции
-        System.out.println(elements[size - 1] + " bye bye!");
+    Object pop() { // возвращает первый элемент в стеке и удаляет его из коллекции
+        Object temp = elements[size - 1];
         elements[size - 1] = null;
         size--;
+        return temp;
     }
 
-    void peek() { // возвращает первый элемент в стеке (LIFO)
-        System.out.println(elements[0]);
+    Object peek() { // возвращает первый элемент в стеке (LIFO)
+        return elements[0];
     }
 
     private Object[] refreshArray() {
